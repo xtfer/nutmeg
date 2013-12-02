@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * The Nutmeg framework for learning PHP.
@@ -9,12 +8,14 @@
  * @copyright Chris Skene
  */
 
+use Nutmeg\Controllers\Nutmeg;
+
 define('NUTMEG_ROOT', getcwd());
 require 'vendor/autoload.php';
 require 'error.inc';
 
 // Initialise Nutmeg.
-$tutor = \Nutmeg\Controllers\Nutmeg::create();
+$tutor = Nutmeg::create();
 
 ?>
 
@@ -32,7 +33,7 @@ $tutor = \Nutmeg\Controllers\Nutmeg::create();
 
     <div id="main">
       <div class="container">
-        <?php $tutor->codeSpace(); ?>
+        <?php $tutor->renderTemplate('CodeSpace'); ?>
 
       </div>
 

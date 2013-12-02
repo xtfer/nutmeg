@@ -112,23 +112,23 @@ a:hover {
   margin: 1em;
 }
 
-#code .tutor_default {
+#code .nutmeg_default {
   color: #223699;
 }
 
-#code .tutor_keyword {
+#code .nutmeg_keyword {
   color: #1a9936;
 }
 
-#code .tutor_string {
+#code .nutmeg_string {
   color: #c7310b;
 }
 
-#code .tutor_htmlsrc {
+#code .nutmeg_htmlsrc {
   color: #a023c7;
 }
 
-#code .tutor_comment {
+#code .nutmeg_comment {
   color: #726e65;
 }
 
@@ -136,4 +136,6 @@ a:hover {
   text-align: center;
   color: #92928a;
   font-size: 90%;
+  border-top: 4px solid #ddd;
+  padding: 1em;
 }

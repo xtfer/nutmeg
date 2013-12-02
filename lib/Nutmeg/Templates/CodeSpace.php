@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Footer template.
+ * Contains the CodeSpace template.
  *
  * @copyright Copyright(c) 2013 Christopher Skene
  * @license GPL v2 http://www.fsf.org/licensing/licenses/gpl.html
@@ -13,24 +13,26 @@ namespace Nutmeg\Templates;
 use Nutmeg\Controllers\Nutmeg;
 
 /**
- * Class Footer
+ * Class CodeSpace
  *
  * @package Nutmeg\Templates
  */
-class Footer implements TemplateInterface {
+class CodeSpace implements TemplateInterface {
 
   /**
    * {@inheritdoc}
    */
   public function render(Nutmeg $nutmeg) {
 
-    $output = '<div id="footer"><div class="container">';
+    $exercise_id = $nutmeg->getExercise();
 
-    $output .= '<div id="colophon">Nutmeg for PHP: &#169; 2013 <a href="http://xtfer.com">xtfer</a>. Licensed under GPL v2. No warranty is provided.</div>';
+    if (!empty($exercise_id)) {
 
-    $output .= '</div></div>';
+      $nutmeg->renderTemplate('ShowExercise');
+    }
+    else {
 
-    return $output;
+      $nutmeg->renderTemplate('ListExercises');
+    }
   }
-
 }
