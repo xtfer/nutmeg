@@ -1,11 +1,9 @@
 <?php
 /**
- * @file
- * Second example.
+ * Example exercise 2 for Nutmeg.
  *
- * @copyright Copyright(c) 2013 Christopher Skene
- * @license GPL v2 http://www.fsf.org/licensing/licenses/gpl.html
- * @author Chris Skene chris at xtfer dot com
+ * This shows you how to set up a more advanced PHP exercise, and the use of
+ * HTML in output.
  */
 
 $cities = array(

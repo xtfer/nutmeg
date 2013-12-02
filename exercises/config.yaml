@@ -2,16 +2,16 @@
 # Example file for setting up exercises.
 
 # The app name appears at the top of your exercise set.
-app_name : 'phpTutor'
+app_name : 'Nutmeg'
 
 # Each exercise should be documented here.
 exercises :
   # The key is the unique machine name.
   1 :
     # Human readable name.
-    name : 'Exercise 1'
+    name : 'Sample exercise 1'
     # File to load.
     file : 'index.php'
   2 :
-    name : 'Exercise 2'
+    name : 'Sample exercise 2'
     file : 'index.php'

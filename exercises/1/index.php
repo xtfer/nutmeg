@@ -1,15 +1,11 @@
 <?php
 /**
- * @file
- * Nutmeg exercise 1
+ * Example exercise 1 for Nutmeg.
  *
- * @license GPL v2 http://www.fsf.org/licensing/licenses/gpl.html
- * @author Chris Skene chris at xtfer dot com dot au
- * @copyright Chris Skene
+ * This shows you how to set up a basic PHP exercise.
  */
 
-/*
- * Your code here....
- */
 $foo = 'bar';
+
+// Print someting...
 print $foo;
