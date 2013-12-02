@@ -1,60 +1,125 @@
-# nutmeg
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-Nutmeg is a learning tool for PHP educators (and students). It provides a
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Nutmeg by xtfer</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Nutmeg</h1>
+        <h2>Makes learning PHP palatable.</h2>
+        <a href="https://github.com/xtfer/nutmeg" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="nutmeg" class="anchor" href="#nutmeg"><span class="octicon octicon-link"></span></a>nutmeg</h1>
+
+<p>Nutmeg is a learning tool for PHP educators (and students). It provides a
 minimal wrapper around students PHP exercises in a way which handles mistakes
 gracefully, helps students and teachers understand their code, and takes care of
 basic things which students shouldn't have to write in a PHP class, like table
-styles.
+styles.</p>
 
-## Features
+<h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
 
-* Prepare a set of PHP exercises for Students to try out
-* Web front-end for listing exercises
-* Side-by-side comparison of students code and output, in the browser
-* PHP syntax highlighting
-* Graceful error handling for student's code
-* Reskin with CSS (currently limited)
-* GPL v2 licenced
+<ul>
+<li>Prepare a set of PHP exercises for Students to try out</li>
+<li>Web front-end for listing exercises</li>
+<li>Side-by-side comparison of students code and output, in the browser</li>
+<li>PHP syntax highlighting</li>
+<li>Graceful error handling for student's code</li>
+<li>Reskin with CSS (currently limited)</li>
+<li>GPL v2 licenced</li>
+</ul><h2>
+<a name="nutmeg-for-educators" class="anchor" href="#nutmeg-for-educators"><span class="octicon octicon-link"></span></a>Nutmeg for educators</h2>
 
-## Nutmeg for educators
+<p>Nutmeg helps you help student to learn PHP, by providing a way to serve up PHP
+exercises in a relatively straightforward way.</p>
 
-Nutmeg helps you help student to learn PHP, by providing a way to serve up PHP
-exercises in a relatively straightforward way.
+<h3>
+<a name="getting-set-up" class="anchor" href="#getting-set-up"><span class="octicon octicon-link"></span></a>Getting set up</h3>
 
-### Getting set up
+<p>Requirements:</p>
 
-Requirements:
-* [Composer](http://getcomposer.org)
+<ul>
+<li><p><a href="http://getcomposer.org">Composer</a></p></li>
+</ul><ol>
+<li>Download or checkout the latest version of Nutmeg.</li>
+<li>Run <code>composer install</code> to get the dependencies and autoloaders built.</li>
+<li>Visit <code>/exercises</code> to customise the exercises available to your students.
 
-1. Download or checkout the latest version of Nutmeg.
-2. Run `composer install` to get the dependencies and autoloaders built.
-3. Visit `/exercises` to customise the exercises available to your students.
-* The list of exercises is stored in `/exercises/config.yaml`
-* Each exercise is a simple PHP file.
+<ul>
+<li>The list of exercises is stored in <code>/exercises/config.yaml</code>
+</li>
+<li>Each exercise is a simple PHP file.</li>
+</ul>
+</li>
+</ol><h2>
+<a name="nutmeg-for-students" class="anchor" href="#nutmeg-for-students"><span class="octicon octicon-link"></span></a>Nutmeg for students</h2>
 
-## Nutmeg for students
+<p>If you don't already know PHP, Nutmeg is not currently ready for you to start
+using it without the supervision of a tutor.</p>
 
-If you don't already know PHP, Nutmeg is not currently ready for you to start
-using it without the supervision of a tutor.
+<h2>
+<a name="roadmap" class="anchor" href="#roadmap"><span class="octicon octicon-link"></span></a>Roadmap</h2>
 
-## Roadmap
+<p>Nutmeg is in early Alpha. Its basic code loading and viewing features are complete,
+but are not extensively tested.</p>
 
-Nutmeg is in early Alpha. Its basic code loading and viewing features are complete,
-but are not extensively tested.
+<p>Some of the features we have in mind:</p>
 
-Some of the features we have in mind:
+<ul>
+<li>Load sample code into exercise view</li>
+<li>Better syntax highlighting</li>
+<li>File dependency handling for exercises</li>
+<li>Argument and global variable handlers.</li>
+<li>PHP function reference</li>
+<li>Custom themes</li>
+<li>Code inspection tools (eg Kint, Krumo etc)</li>
+</ul><h2>
+<a name="who-made-this" class="anchor" href="#who-made-this"><span class="octicon octicon-link"></span></a>Who made this?</h2>
 
-* Load sample code into exercise view
-* Better syntax highlighting
-* File dependency handling for exercises
-* Argument and global variable handlers.
-* PHP function reference
-* Custom themes
-* Code inspection tools (eg Kint, Krumo etc)
+<p>Nutmeg is written and maintained by Chris Skene. Pull requests welcome.</p>
 
-## Who made this?
+<p>Nutmeg is licenced under GPL v2. Feel free to reuse it as you see fit, but please
+consider referencing us if you do.</p>
+        </section>
 
-Nutmeg is written and maintained by Chris Skene. Pull requests welcome.
+        <aside id="sidebar">
+          <a href="https://github.com/xtfer/nutmeg/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/xtfer/nutmeg/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
 
-Nutmeg is licenced under GPL v2. Feel free to reuse it as you see fit, but please
-consider referencing us if you do.
+          <p class="repo-owner"><a href="https://github.com/xtfer/nutmeg"></a> is maintained by <a href="https://github.com/xtfer">xtfer</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
