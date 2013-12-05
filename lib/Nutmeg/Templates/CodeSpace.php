@@ -24,7 +24,7 @@ class CodeSpace implements TemplateInterface {
    */
   public function render(Nutmeg $nutmeg) {
 
-    $exercise_id = $nutmeg->getExercise();
+    $exercise_id = $nutmeg->getExerciseID();
 
     if (!empty($exercise_id)) {
 

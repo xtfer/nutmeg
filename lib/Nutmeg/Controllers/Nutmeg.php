@@ -108,7 +108,7 @@ class Nutmeg {
    * @param string $exercise
    *   The value to set.
    */
-  public function setExercise($exercise) {
+  public function setExerciseID($exercise) {
 
     $this->exercise = $exercise;
   }
@@ -119,7 +119,7 @@ class Nutmeg {
    * @return string
    *   The value of Exercise.
    */
-  public function getExercise() {
+  public function getExerciseID() {
     if (isset($this->exercise) && !empty($this->exercise)) {
       return $this->exercise;
     }
