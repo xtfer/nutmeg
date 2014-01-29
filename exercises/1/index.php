@@ -7,5 +7,5 @@
 
 $foo = 'bar';
 
-// Print someting...
+// Print something...
 print $foo;
