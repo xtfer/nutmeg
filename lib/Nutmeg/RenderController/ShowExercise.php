@@ -8,7 +8,7 @@
  * @author Chris Skene chris at xtfer dot com
  */
 
-namespace Nutmeg\Templates;
+namespace Nutmeg\RenderController;
 
 use Nutmeg\Controllers\Nutmeg;
 use Nutmeg\Helpers\CodeEvaluator;
@@ -19,17 +19,17 @@ use Nutmeg\Helpers\Highlighter;
  *
  * @package Nutmeg\Templates
  */
-class ShowExercise implements TemplateInterface {
+class ShowExercise extends RenderController {
 
   /**
    * {@inheritdoc}
    */
-  public function render(Nutmeg $nutmeg) {
+  public function prepare(Nutmeg $nutmeg) {
 
     $output = '';
 
     $exercises = $nutmeg->getSetting('exercises');
-    $exercise_id = $nutmeg->getExerciseID();
+    $exercise_id = $nutmeg->getPath();
 
     $exercise_settings = array(
       'name' => $exercise_id,
@@ -70,7 +70,9 @@ class ShowExercise implements TemplateInterface {
 
     $output .= '</div>';
 
-    return $output;
+    $vars['content'] = $output;
+
+    return $vars;
   }
 
 }

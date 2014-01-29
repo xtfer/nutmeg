@@ -1,0 +1,13 @@
+
+# Sample Exercise definition file.
+#
+# This file sets up this individual exercise.
+
+# The exercise name. This will probably be the same as your config file.
+name: 'Sample Exercise 1'
+
+# Description
+description: 'This is a sample exercise to help you understand how to configure and prepare exercises using Nutmeg'
+
+# Task
+task: 'Using only PHP, store a string in a variable then print this value to the screen.'
