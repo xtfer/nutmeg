@@ -7,22 +7,23 @@
  * @license GPL v2 http://www.fsf.org/licensing/licenses/gpl.html
  * @author Chris Skene chris at xtfer dot com
  */
-namespace Nutmeg\Templates;
+namespace Nutmeg\RenderController;
 
 use Nutmeg\Controllers\Nutmeg;
 use Nutmeg\Helpers\Link;
+use Nutmeg\RenderController\RenderControllerInterface;
 
 /**
  * Class ListExercises
  *
  * @package Nutmeg\Templates
  */
-class ListExercises implements TemplateInterface {
+class ListExercises extends RenderController {
 
   /**
    * {@inheritdoc}
    */
-  public function render(Nutmeg $nutmeg) {
+  public function prepare(Nutmeg $nutmeg) {
 
     $output = '<h2>Exercises</h2>';
     $output .= '<div id="exercise-list" class="pane"><ul>';
@@ -50,6 +51,9 @@ class ListExercises implements TemplateInterface {
 
     $output .= '</ul></div>';
 
-    return $output;
+    $vars['content'] = $output;
+
+    return $vars;
   }
+
 }

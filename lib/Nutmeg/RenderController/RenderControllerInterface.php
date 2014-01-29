@@ -8,7 +8,7 @@
  * @author Chris Skene chris at xtfer dot com
  */
 
-namespace Nutmeg\Templates;
+namespace Nutmeg\RenderController;
 
 use Nutmeg\Controllers\Nutmeg;
 
@@ -16,18 +16,25 @@ use Nutmeg\Controllers\Nutmeg;
  * Interface TemplateInterface
  * @package Nutmeg\Templates
  */
-interface TemplateInterface {
+interface RenderControllerInterface {
 
   /**
-   * Render the template.
+   * Prepare variable for rendering.
    *
    * @param Nutmeg $nutmeg
-   *   A Nutmeg Controller object.
+   *   The nutmeg object.
    *
-   * @return
-   *   The result of the render operation should be a string, usually containing
-   *   HTML.
+   * @return string
+   *   The prepared vars.
    */
-  public function render(Nutmeg $nutmeg);
+  public function prepare(Nutmeg $nutmeg);
+
+  /**
+   * Defines the template name to use.
+   *
+   * @return string
+   *   The template name.
+   */
+  public function templateName();
 
 }

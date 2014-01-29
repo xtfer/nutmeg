@@ -15,33 +15,7 @@ require 'vendor/autoload.php';
 require 'lib/shortcuts.php';
 
 // Initialise Nutmeg.
-$tutor = Nutmeg::create();
+$nutmeg = Nutmeg::create();
+print $nutmeg->run();
 
 ?>
-
-<html>
-  <head>
-    <title><?php print $tutor->getSetting('app_name'); ?></title>
-    <link type="text/css" rel="stylesheet" href="/themes/default/reset.css" media="all"/>
-    <link type="text/css" rel="stylesheet" href="/themes/default/styles.css" media="all"/>
-  </head>
-  <body>
-
-  <div id="body" >
-    <?php $tutor->renderTemplate('Header'); ?>
-
-
-    <div id="main">
-      <div class="container">
-        <?php $tutor->renderTemplate('CodeSpace'); ?>
-
-      </div>
-
-    </div>
-
-    <?php $tutor->renderTemplate('Footer'); ?>
-
-  </div>
-
-  </body>
-</html>

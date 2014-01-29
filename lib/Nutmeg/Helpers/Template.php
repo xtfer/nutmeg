@@ -11,7 +11,7 @@
 namespace Nutmeg\Helpers;
 
 use Nutmeg\Controllers\Nutmeg;
-use Nutmeg\Templates\TemplateInterface;
+use Nutmeg\RenderController\RenderControllerInterface;
 
 /**
  * Class Template
@@ -27,12 +27,43 @@ class Template {
    *   Name of the template to render.
    * @param \Nutmeg\Controllers\Nutmeg $nutmeg
    *   The Nutmeg controller object.
+   *
+   * @return string
    */
   static public function renderTemplate($template_name, Nutmeg $nutmeg) {
 
-    $template = self::loadTemplateClass($template_name);
+    $render_controller = static::loadRenderController(ucfirst($template_name));
 
-    print $template->render($nutmeg);
+    $theme_name = $nutmeg->getSetting('theme');
+    $theme_path = 'themes/' . $theme_name;
+    $template_path = $theme_path . '/templates/' . $render_controller->templateName() . '.php';
+
+    $vars = $render_controller->prepare($nutmeg);
+
+    return static::renderTemplateFile($template_path, $vars);
+  }
+
+  /**
+   * Render a static template file.
+   *
+   * @param $template_file
+   * @param $variables
+   *
+   * @return string
+   */
+  static public function renderTemplateFile($template_file, $variables) {
+
+    // Extract the variables to a local namespace.
+    extract($variables, EXTR_SKIP);
+
+    // Start output buffering.
+    ob_start();
+
+    // Include the template file.
+    include NUTMEG_ROOT . '/' . $template_file;
+
+    // End buffering and return its contents.
+    return ob_get_clean();
   }
 
   /**
@@ -43,22 +74,22 @@ class Template {
    *
    * @throws \Exception
    *
-   * @return TemplateInterface
+   * @return \Nutmeg\RenderController\RenderControllerInterface
    *   A template class.
    */
-  public static function loadTemplateClass($template_name) {
+  public static function loadRenderController($template_name) {
 
     // @todo More configurability here.
-    $template_class = '\\Nutmeg\\Templates\\' . $template_name;
+    $controller_class = '\\Nutmeg\\RenderController\\' . $template_name;
 
-    if (class_exists($template_class)) {
-      $template = new $template_class();
+    if (class_exists($controller_class)) {
+      $controller = new $controller_class();
 
-      if ($template instanceof TemplateInterface) {
-        return $template;
+      if ($controller instanceof RenderControllerInterface) {
+        return $controller;
       }
     }
 
-    throw new \Exception('Invalid template handler ' . $template_class .  ' specified');
+    throw new \Exception('Invalid render controller ' . $controller_class .  ' specified');
   }
 }

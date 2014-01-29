@@ -4,6 +4,21 @@
 # The app name appears at the top of your exercise set.
 app_name : 'Nutmeg'
 
+# Theme
+theme: 'default'
+
+# Contexts determine what gets rendered.
+contexts :
+  # Machine name of the context.
+  home :
+    # Human readable name
+    name : 'Home'
+    # Handling class.
+    handler : '\Nutmeg\Context\Home'
+  exercise:
+    name: 'Exercises'
+    handler : '\Nutmeg\Context\Exercise'
+
 # Each exercise should be documented here.
 exercises :
   # The key is the unique machine name.
