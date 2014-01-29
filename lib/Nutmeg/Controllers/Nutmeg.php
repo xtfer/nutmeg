@@ -10,6 +10,7 @@
 
 namespace Nutmeg\Controllers;
 
+use Nutmeg\Error\ErrorHandler;
 use Nutmeg\Helpers\Security;
 use Nutmeg\Helpers\Template;
 use Symfony\Component\Yaml\Exception\ParseException;
@@ -48,6 +49,8 @@ class Nutmeg {
     if (isset($_GET['e']) && !empty($_GET['e'])) {
       $this->exercise = Security::cleanInput($_GET['e']);
     }
+
+    ErrorHandler::setErrorOptions();
   }
 
   /**

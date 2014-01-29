@@ -12,7 +12,6 @@ use Nutmeg\Controllers\Nutmeg;
 
 define('NUTMEG_ROOT', getcwd());
 require 'vendor/autoload.php';
-require 'error.inc';
 require 'lib/shortcuts.php';
 
 // Initialise Nutmeg.
