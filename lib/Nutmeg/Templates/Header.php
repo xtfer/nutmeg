@@ -35,7 +35,7 @@ class Header implements TemplateInterface {
 
     $output .= '<div id="nav"><ul>';
 
-    $exercise_id = $nutmeg->getExercise();
+    $exercise_id = $nutmeg->getExerciseID();
     if (!empty($exercise_id)) {
       $output .= '<li><a href="/">Home</a></li>';
     }

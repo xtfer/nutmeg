@@ -1,0 +1,3 @@
+Nutmeg Changelog
+
+- Nutmeg\Controllers\Nutmeg::getExercise() is now getExerciseID().

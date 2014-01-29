@@ -29,7 +29,7 @@ class ShowExercise implements TemplateInterface {
     $output = '';
 
     $exercises = $nutmeg->getSetting('exercises');
-    $exercise_id = $nutmeg->getExercise();
+    $exercise_id = $nutmeg->getExerciseID();
 
     $exercise_settings = array(
       'name' => $exercise_id,

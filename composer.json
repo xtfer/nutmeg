@@ -15,6 +15,7 @@
   },
   "require": {
     "doctrine/common": "2.3.0",
-    "symfony/yaml": "2.4.*@dev"
+    "symfony/yaml": "2.4.*@dev",
+    "raulfraile/ladybug": "v1.0.8"
   }
 }
