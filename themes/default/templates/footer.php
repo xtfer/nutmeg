@@ -8,7 +8,7 @@
 
 <div id="footer">
   <div class="container">'
-    <div id="colophon">Nutmeg for PHP: &#169; 2013 <a href="http://xtfer.com">xtfer</a>.
+    <div id="colophon">Nutmeg for PHP: &#169; 2013-<?php print date('Y'); ?> <a href="http://xtfer.com">xtfer</a>.
       Licensed under GPL v2. No warranty is provided.
     </div>
   </div>
