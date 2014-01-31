@@ -27,9 +27,12 @@ class Security {
    *   A string passed through htmlspecialchars().
    */
   static public function cleanInput($input) {
+    if (empty($input)) {
+      return '';
+    }
 
     if (!is_string($input)) {
-      return $input;
+      return (string) $input;
     }
 
     return htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
