@@ -61,7 +61,9 @@ class NutmegErrorHandler {
     ladybug_dump($e->getMessage());
 
     print '<h2>Backtrace</h2>';
-    ladybug_dump($e->getTrace());
+    $trace = $e->getTrace();
+    array_shift($trace);
+    ladybug_dump($trace);
 
     exit;
   }
