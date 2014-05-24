@@ -4,8 +4,10 @@
 # The app name appears at the top of your exercise set.
 app_name : 'Nutmeg'
 
-# Theme
+# Theme name.
 theme: 'default'
+# Path to the theme files, relative to the the project root.
+theme_path: 'themes'
 
 # Contexts determine what gets rendered.
 contexts :
@@ -25,7 +27,7 @@ exercises :
   1 :
     # Human readable name.
     name : 'Sample exercise 1'
-    # File to load.
+    # ExerciseFileLoader to load.
     file : 'index.php'
   2 :
     name : 'Sample exercise 2'

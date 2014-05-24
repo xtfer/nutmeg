@@ -53,7 +53,9 @@ class Nutmeg {
    *   The current path.
    */
   public function __construct(array $settings, $path) {
-    $this->settings = $settings;
+
+    $this->settings = $settings + $this->defaultSettings();
+    $this->settings['base_dir'] = NUTMEG_ROOT;
 
     $this->path = $path;
 
@@ -123,7 +125,7 @@ class Nutmeg {
    */
   public function render($template_name) {
 
-    return Template::renderTemplate($template_name, $this);
+    return Template::render($template_name, $this);
   }
 
   /**
@@ -204,5 +206,18 @@ class Nutmeg {
       $this->context = $contexts[$context_name];
       $this->context['machine_name'] = $context_name;
     }
+  }
+
+  /**
+   * Set some defaults.
+   *
+   * @return array
+   *   Sensible defaults.
+   */
+  protected function defaultSettings() {
+    return array(
+      'theme' => 'default',
+      'theme_path' => 'themes',
+    );
   }
 }
