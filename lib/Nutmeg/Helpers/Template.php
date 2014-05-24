@@ -18,7 +18,7 @@ use Nutmeg\RenderController\RenderControllerInterface;
  *
  * @package Nutmeg\Helpers
  */
-class Template {
+class Template extends Helper {
 
   /**
    * Render a template.
@@ -29,29 +29,51 @@ class Template {
    *   The Nutmeg controller object.
    *
    * @return string
+   *   The template output.
    */
-  static public function renderTemplate($template_name, Nutmeg $nutmeg) {
+  static public function render($template_name, Nutmeg $nutmeg) {
 
-    $render_controller = static::loadRenderController(ucfirst($template_name));
+    $template_handler = new static($nutmeg);
 
-    $theme_name = $nutmeg->getSetting('theme');
-    $theme_path = 'themes/' . $theme_name;
+    return $template_handler->renderTemplate($template_name);
+
+  }
+
+  /**
+   * Render a template file.
+   *
+   * @param string $template_name
+   *   Name of the template.
+   *
+   * @throws \Exception
+   * @return string
+   *   The rendered output.
+   */
+  public function renderTemplate($template_name) {
+
+    $render_controller = $this->loadRenderController(ucfirst($template_name));
+
+    $theme_name = $this->nutmeg->getSetting('theme');
+    $theme_path = $this->nutmeg->getSetting('base_dir') . '/' . $this->nutmeg->getSetting('theme_path') . '/' . $theme_name;
     $template_path = $theme_path . '/templates/' . $render_controller->templateName() . '.php';
 
-    $vars = $render_controller->prepare($nutmeg);
+    $vars = $render_controller->prepare($this->nutmeg);
 
-    return static::renderTemplateFile($template_path, $vars);
+    return $this->renderTemplateFile($template_path, $vars);
   }
 
   /**
    * Render a static template file.
    *
-   * @param $template_file
-   * @param $variables
+   * @param string $template_file
+   *   Name of the template file.
+   * @param array $variables
+   *   Any variables.
    *
    * @return string
+   *   The rendered output.
    */
-  static public function renderTemplateFile($template_file, $variables) {
+  public function renderTemplateFile($template_file, $variables) {
 
     // Extract the variables to a local namespace.
     extract($variables, EXTR_SKIP);
@@ -60,7 +82,7 @@ class Template {
     ob_start();
 
     // Include the template file.
-    include NUTMEG_ROOT . '/' . $template_file;
+    include $template_file;
 
     // End buffering and return its contents.
     return ob_get_clean();
@@ -77,7 +99,7 @@ class Template {
    * @return \Nutmeg\RenderController\RenderControllerInterface
    *   A template class.
    */
-  public static function loadRenderController($template_name) {
+  public function loadRenderController($template_name) {
 
     // @todo More configurability here.
     $controller_class = '\\Nutmeg\\RenderController\\' . $template_name;

@@ -15,7 +15,7 @@ namespace Nutmeg\Helpers;
  *
  * @package Nutmeg\Helpers
  */
-class Link {
+class Link extends Helper {
 
   /**
    * Create a link.
@@ -38,8 +38,10 @@ class Link {
       'html' => FALSE,
     );
 
-    // Remove all HTML and PHP tags from a tooltip. For best performance, we act only
-    // if a quick strpos() pre-check gave a suspicion (because strip_tags() is expensive).
+    // Remove all HTML and PHP tags from a tooltip. For best performance,
+    // we act only if a quick strpos() pre-check gave a
+    // suspicion (because strip_tags() is expensive).
+    // @todo: Do we care about speed here?
     if (isset($options['attributes']['title']) && strpos($options['attributes']['title'], '<') !== FALSE) {
       $options['attributes']['title'] = strip_tags($options['attributes']['title']);
     }
@@ -49,6 +51,15 @@ class Link {
     return '<a href="' . Security::cleanInput($path) . '"' . Security::cleanInput($options['attributes']) . '>' . ($options['html'] ? $text : Security::cleanInput($text)) . '</a>';
   }
 
+  /**
+   * Format attributes.
+   *
+   * @param array $attributes
+   *   An array of attributes.
+   *
+   * @return string
+   *   The formatted attribute string.
+   */
   static public function attributes(array $attributes = array()) {
 
     foreach ($attributes as $attribute => &$data) {

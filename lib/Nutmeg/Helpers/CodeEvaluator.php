@@ -16,19 +16,24 @@ namespace Nutmeg\Helpers;
  *
  * @package Nutmeg\Helpers
  */
-class CodeEvaluator {
+class CodeEvaluator extends Helper {
 
   /**
-   * @param $exercise_id
-   * @param $exercise_settings
+   * Evaluate an exercise file.
+   *
+   * @param string $exercise_id
+   *   Identifier of the exercise.
+   * @param array $exercise_settings
+   *   The settings for the exercise.
    *
    * @return string
+   *   The file to evaluate.
    */
-  public static function evaluate($exercise_id, $exercise_settings) {
+  public function evaluate($exercise_id, $exercise_settings) {
 
     try {
       ob_start();
-      File::loadExerciseFile($exercise_id, $exercise_settings['file']);
+      ExerciseFileLoader::invoke($this->nutmeg)->loadExerciseFile($exercise_id, $exercise_settings['file']);
       $content = ob_get_contents();
       ob_end_clean();
 

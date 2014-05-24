@@ -47,10 +47,10 @@ class ShowExercise extends RenderController {
     }
 
     // Highlight the code.
-    $output .= '<h2>File contents:</h2>';
+    $output .= '<h2>ExerciseFileLoader contents:</h2>';
     $output .= '<div id="code" class="pane"><code>';
 
-    $rendered = Highlighter::highlightExercise($exercise_id, $exercise_settings['file']);
+    $rendered = Highlighter::invoke($nutmeg)->highlightExercise($exercise_id, $exercise_settings['file']);
 
     // @todo Finish line numbers.
     // $lines = explode('<br />', $rendered);
@@ -66,7 +66,7 @@ class ShowExercise extends RenderController {
     $output .= '<h2>Output:</h2>';
     $output .= '<div id="output" class="pane">';
 
-    $output .= CodeEvaluator::evaluate($exercise_id, $exercise_settings);
+    $output .= CodeEvaluator::invoke($nutmeg)->evaluate($exercise_id, $exercise_settings);
 
     $output .= '</div>';
 

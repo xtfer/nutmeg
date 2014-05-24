@@ -15,7 +15,7 @@ namespace Nutmeg\Helpers;
  *
  * @package Nutmeg\Helpers
  */
-class Security {
+class Security extends Helper {
 
   /**
    * Clean input.
