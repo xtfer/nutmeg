@@ -10,7 +10,7 @@
 
 namespace Nutmeg\Controllers;
 
-use Nutmeg\Error\ErrorHandler;
+use Nutmeg\Error\NutmegErrorHandler;
 use Nutmeg\Helpers\Security;
 use Nutmeg\Helpers\Template;
 use Nutmeg\Helpers\Yaml;
@@ -57,7 +57,7 @@ class Nutmeg {
 
     $this->path = $path;
 
-    ErrorHandler::setErrorOptions();
+    NutmegErrorHandler::setErrorOptions();
   }
 
   /**

@@ -8,11 +8,11 @@ namespace Nutmeg\Error;
 
 
 /**
- * Class ErrorHandler
+ * Class NutmegErrorHandler
  *
  * @package Nutmeg\Controllers
  */
-class ErrorHandler {
+class NutmegErrorHandler {
 
   /**
    * Setup custom error options.
@@ -24,10 +24,10 @@ class ErrorHandler {
     assert_options(ASSERT_WARNING, 0);
     assert_options(ASSERT_BAIL, 0);
     assert_options(ASSERT_QUIET_EVAL, 0);
-    assert_options(ASSERT_CALLBACK, '\Nutmeg\Error\ErrorHandler::assertCallback');
-    set_error_handler('\Nutmeg\Error\ErrorHandler::errorHandler');
-    set_exception_handler('\Nutmeg\Error\ErrorHandler::exceptionHandler');
-    register_shutdown_function('\Nutmeg\Error\ErrorHandler::shutdownHandler');
+    assert_options(ASSERT_CALLBACK, '\Nutmeg\Error\NutmegErrorHandler::assertCallback');
+    set_error_handler('\Nutmeg\Error\NutmegErrorHandler::errorHandler');
+    set_exception_handler('\Nutmeg\Error\NutmegErrorHandler::exceptionHandler');
+    register_shutdown_function('\Nutmeg\Error\NutmegErrorHandler::shutdownHandler');
   }
 
   /**
@@ -56,7 +56,7 @@ class ErrorHandler {
   static public function exceptionHandler(\Exception $e) {
 
     // Do what ever!
-    echo '<pre>', print_r($e, TRUE), '</pre>';
+    ladybug_dump($e);
     exit;
   }
 
