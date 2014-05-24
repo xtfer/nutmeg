@@ -55,8 +55,14 @@ class NutmegErrorHandler {
    */
   static public function exceptionHandler(\Exception $e) {
 
-    // Do what ever!
-    ladybug_dump($e);
+    print '<h1>Error</h1>';
+
+    print '<h2>Message</h2>';
+    ladybug_dump($e->getMessage());
+
+    print '<h2>Backtrace</h2>';
+    ladybug_dump($e->getTrace());
+
     exit;
   }
 
