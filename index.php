@@ -17,5 +17,3 @@ require 'lib/shortcuts.php';
 // Initialise Nutmeg.
 $nutmeg = Nutmeg::create();
 print $nutmeg->run();
-
-?>

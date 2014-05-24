@@ -1,7 +1,9 @@
 <?php
 /**
  * @file
+ * Default page template.
  */
+
 ?>
 
 <html>
