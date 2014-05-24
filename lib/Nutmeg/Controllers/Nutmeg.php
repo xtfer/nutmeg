@@ -63,13 +63,28 @@ class Nutmeg {
   /**
    * Static factory function.
    *
+   * @param string $config_file
+   *   (Optional) Name of the config file. Defaults to 'app.yaml'
+   * @param null $path_to_config
+   *   (Optional) Path to the config file. Defaults to the 'config' folder in
+   *   same directory as the index.php file.
+   *
+   * @throws \Exception
    * @return \Nutmeg\Controllers\Nutmeg
    *   This Nutmeg controller.
    */
-  static public function create() {
+  static public function create($config_file = 'app.yaml', $path_to_config = NULL) {
 
-    // @todo Make the config settings location more configurable.
-    $settings = Yaml::readFile(NUTMEG_ROOT . '/config/app.yaml');
+    if (empty($path_to_config)) {
+      $path_to_config = NUTMEG_ROOT . '/config/';
+    }
+
+    try {
+      $settings = Yaml::readFile($path_to_config . '/' . $config_file);
+    }
+    catch (\Exception $e) {
+      throw new \Exception('Could not load the Nutmeg config file. The error was: ' . $e->getMessage());
+    }
 
     $path = '';
     if (isset($_GET['e']) && !empty($_GET['e'])) {
